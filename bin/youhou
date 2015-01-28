@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+var mdns = require('mdns');
+var program = require('commander');
+var pkg = require('../package.json');
+var os = require('os');
+var url = require('url');
+
+program
+  .version(pkg.version)
+  .usage('<port>')
+  .option('-p, --protocol [value]', 'Protocol. Default to "tcp".')
+  .option('-t, --type [value]', 'Type. Default to "http".')
+  .option('-n, --name [value]', 'Name. Default to "youhou".')
+  .parse(process.argv);
+
+if (!program.args.length)
+  program.help();
+
+
+var protocol = program.protocol || 'tcp';
+var type = program.type || 'http';
+var name = program._name || 'youhou';
+var port = +program.args[0];
+
+var ad = mdns.createAdvertisement(mdns[protocol](type), port, {
+  name: name
+}, function (err) {
+  if (err) throw err;
+  console.log('Multicast DNS started for: %s', url.format({
+    protocol: type,
+    hostname: os.hostname(),
+    port: port
+  }));
+});
+ad.start();

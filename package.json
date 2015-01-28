@@ -1,0 +1,28 @@
+{
+  "name": "youhou",
+  "version": "0.0.0",
+  "description": "Easily broadcast your hostname in using Multicast DNS.",
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^2.6.0",
+    "mdns": "^2.2.2"
+  },
+  "bin": {
+    "youhou": "./bin/youhou"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neoziro/youhou.git"
+  },
+  "keywords": [
+    "mdns",
+    "dns",
+    "multicast"
+  ],
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neoziro/youhou/issues"
+  },
+  "homepage": "https://github.com/neoziro/youhou"
+}
