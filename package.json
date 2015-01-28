@@ -1,6 +1,6 @@
 {
   "name": "youhou",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Easily broadcast your hostname in using Multicast DNS.",
   "main": "index.js",
   "dependencies": {
